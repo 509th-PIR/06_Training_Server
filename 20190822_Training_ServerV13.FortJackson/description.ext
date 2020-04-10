@@ -1,0 +1,68 @@
+
+#include "CHVD\dialog.hpp" // View Distance
+#include "VVS\Functions.h"
+#include "VVS\menu.h" //vic spawner 
+
+enableDebugConsole[] = { "76561198277313876", "76561198024812575", "76561198352564029", "76561198051306330" };
+
+
+respawn = "BASE";
+respawndelay = "3";
+respawnOnStart = 0;
+respawnTemplates[] = {"MenuInventory","MenuPosition"};
+aikills = 0;
+DisabledAI = true;
+saving=0;
+
+class Extended_PreInit_EventHandlers {
+	class VCM_CBASettings {
+		init = "call VCM_fnc_CBA_Settings";
+	};
+};
+
+class CfgRemoteExec
+{
+	// List of script functions allowed to be sent from client via remoteExec
+	class Functions
+	{
+		mode = 2;
+		jip = 1;		
+		
+		class vcm_serverask { allowedTargets = 0;jip = 1; };
+		class VCM_PublicScript { allowedTargets = 0;jip = 1; };
+		class BIS_fnc_debugConsoleExec { allowedTargets = 0;jip = 1; };
+		class SpawnScript { allowedTargets = 0;jip = 1; };
+		class enableSimulationGlobal { allowedTargets = 0;jip = 1; };
+		class VCM_fnc_KnowAbout { allowedTargets = 0;jip = 1; };
+		
+	};
+	
+	
+};
+
+corpseManagerMode = 1; //Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable 
+corpseLimit = 15; //Max number of bodies which can be available at the same time. When exceeded, start deleting immediately. 
+corpseRemovalMinTime = 60; //Minimal time in seconds a body stays in the scene (can't be removed sooner). 
+corpseRemovalMaxTime = 120; //Maximal time in seconds after which a dead body is removed (can't stay longer)
+
+class Header
+{
+	gameType = COOP;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+
+
+
+
+
+class CfgFunctions
+{
+	#include "CHVD\CfgFunctions.hpp"
+	#include "VVS\Functions.h"
+	#include "vcom\cfgFunctions.hpp"
+};
+
+
+author="Drifter,509th PIR";
+OnLoadName = "3-509th IR Training Grounds";
