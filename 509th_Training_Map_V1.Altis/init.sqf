@@ -29,47 +29,47 @@ CHVD_maxObj = 6000;
 
 ////////////////Anit Cheat/////////////////////////////////////////////////////
 
-// Admin and cheat mods
-// if (["KA_proving_ground",
-// 	"NSS_Admin_Console",
-// 	"MGI_TP_V3",
-// 	"MGI_TG",
-// 	"XEDOM_AdminTool",
-// 	"SSPCM",
-// 	"Revo_DC", 
-// 	"mcc_sandbox",
-// 	"mcc_sandbox_curatorExp",
-// 	"sn_backpack_air",
-// 	"sn_backpack_tt",
-// 	"sn_backpack_sw",
-// 	"SPCONTROLMOD",
-// 	"targetedBUGHANDLER",
-// 	"TPW_HUD"] apply {isClass(configFile>>"CfgPatches">>_x)} findIf {_x} > -1) then{
-// 	["AdminMod", false, 2] call BIS_fnc_endMission;};
+Admin and cheat mods
+if (["KA_proving_ground",
+	"NSS_Admin_Console",
+	"MGI_TP_V3",
+	"MGI_TG",
+	"XEDOM_AdminTool",
+	"SSPCM",
+	"Revo_DC", 
+	"mcc_sandbox",
+	"mcc_sandbox_curatorExp",
+	"sn_backpack_air",
+	"sn_backpack_tt",
+	"sn_backpack_sw",
+	"SPCONTROLMOD",
+	"targetedBUGHANDLER",
+	"TPW_HUD"] apply {isClass(configFile>>"CfgPatches">>_x)} findIf {_x} > -1) then{
+	["AdminMod", false, 2] call BIS_fnc_endMission;};
 
-//     //Mods banned off the Server
-// if (["tf47_launchers",
-// 	"ravage",
-// 	"BloodSplatter",
-// 	"BloodlustLITE_Auto",
-// 	"BloodSplatterLITE",
-// 	"AACC",
-// 	"KA_Suitcase_Nuke",
-// 	"hlcweapons_M134",
-// 	"bullet_cases"] apply {isClass(configFile>>"CfgPatches">>_x)} findIf {_x} > -1) then{
-// 		["RestrictedMods", false, 2] call BIS_fnc_endMission;};
+    //Mods banned off the Server
+if (["tf47_launchers",
+	"ravage",
+	"BloodSplatter",
+	"BloodlustLITE_Auto",
+	"BloodSplatterLITE",
+	"AACC",
+	"KA_Suitcase_Nuke",
+	"hlcweapons_M134",
+	"bullet_cases"] apply {isClass(configFile>>"CfgPatches">>_x)} findIf {_x} > -1) then{
+		["RestrictedMods", false, 2] call BIS_fnc_endMission;};
 
-// //arsenal Block
-// if (["PA_arsenal",	
-// 	"VAS_Diag",
-// 	"Gear_Loadout", 
-// 	"KA_VAA",
-// 	"vaa_arsenal",
-// 	"nks_arsenal",
-// 	"IA_ACE_VAA",
-// 	"Lordeath_arsenal",
-// 	"Roys_Arsenal"] apply {isClass(configFile>>"CfgPatches">>_x)} findIf {_x} > -1) then{
-// 	["ArsenalMod", false, 2] call BIS_fnc_endMission;};
+//arsenal Block
+if (["PA_arsenal",	
+	"VAS_Diag",
+	"Gear_Loadout", 
+	"KA_VAA",
+	"vaa_arsenal",
+	"nks_arsenal",
+	"IA_ACE_VAA",
+	"Lordeath_arsenal",
+	"Roys_Arsenal"] apply {isClass(configFile>>"CfgPatches">>_x)} findIf {_x} > -1) then{
+	["ArsenalMod", false, 2] call BIS_fnc_endMission;};
 
 ///////////////////////////Remove Shack Tac vis////////////////////////////////////////////////
 
@@ -77,6 +77,33 @@ STGI_Update = {};
 STNT_Update ={};
 
 ///////////////////////////Firing Range////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////helmet mod stuff////////////////////////////////////////
+rhs_helmet_list = ["rhsusf_ach_helmet_headset_ess_ocp_alt",
+                    "rhsusf_ach_helmet_ocp_alt",
+                    "rhsusf_ach_helmet_ESS_ocp",
+                    "rhsusf_ach_helmet_ESS_ocp_alt",
+                    "rhsusf_ach_helmet_headset_ocp",
+                    "rhsusf_ach_helmet_headset_ocp_alt",
+                    "rhsusf_ach_helmet_headset_ess_ocp",
+                    "rhsusf_ach_helmet_headset_ess_ocp_alt",
+                    "rhsusf_ach_helmet_camo_ocp",
+                    "rhsusf_ach_helmet_ocp_norotos"];
+
+SAN_Headlamp_Helmets append rhs_helmet_list;
+SAN_Headlamp_ColorCompatibleLamps append rhs_helmet_list;
+
+
+
+
+
+
+
+
+
 
 ///////////////////////////Clean up Map////////////////////////////////////////////////////////
 
