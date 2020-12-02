@@ -1,0 +1,155 @@
+
+#include "CHVD\dialog.hpp" // View Distance
+#include "KPGUI\KPGUI_defines.hpp" // Box loader
+#include "KPCF\ui\KPCF_dialog.hpp" // Box Loader
+#include "VVS\menu.h" // Virtual Vehicle Spawner
+
+enableDebugConsole[] = { "76561198277313876", 
+						"76561198024812575", 
+						"76561198352564029", 
+						"76561198168637308",
+						"76561198018673035",
+						"76561198079493776"
+						};
+
+
+author="509th PIR Mission Dev";
+OnLoadName = "509th PIR Training Server";
+OnLoadMission = "Welcome to the 509th PIR Training Ground - Altis";
+loadScreen = "pics\509th.jpg";
+
+respawndelay = "3";
+respawnOnStart = 0;
+aikills = 0;
+DisabledAI = true;
+saving=0;
+
+///sounds
+class CfgSounds {
+	sounds[] = {};
+
+	class Power_down 
+	{
+		name = "Power_down";
+		sound[] = {"sound\effects\Powerdown.ogg", 1, 1};
+		titles[] = {};
+};
+	
+	class keyboard_sound 
+	{
+		name = "keyboard_sound";
+		sound[] = {"sound\effects\keyboard.ogg", 1, 1};
+		titles[] = {};
+};
+	
+	class power_back_on 
+	{
+		name = "power_back_on";
+		sound[] = {"sound\effects\power_backon.ogg", 1, 1};
+		titles[] = {};
+};
+
+	
+	class reset_shoot_house 
+	{
+	name = "reset_shoot_house";
+	sound[] = {"sound\effects\reset_shoot_house.ogg", 1, 1};
+	titles[] = {};
+};	 
+	
+	class important_song 
+	{
+	name = "important_song";
+	sound[] = {"sound\VeryImportantSong.ogg", 1, 1};
+	titles[] = {};
+};	  
+};
+
+
+class CfgRemoteExec
+{
+	// List of script functions allowed to be sent from client via remoteExec
+	class Functions
+	{
+		mode = 2;
+		jip = 1;		
+		
+		class vcm_serverask { allowedTargets = 0;jip = 1; };
+		class VCM_PublicScript { allowedTargets = 0;jip = 1; };
+		class BIS_fnc_debugConsoleExec { allowedTargets = 0;jip = 1; };
+		class SpawnScript { allowedTargets = 0;jip = 1; };
+		class enableSimulationGlobal { allowedTargets = 0;jip = 1; };
+		class VCM_fnc_KnowAbout { allowedTargets = 0;jip = 1; };
+		
+	};
+	
+	
+};
+
+
+class Extended_PreInit_EventHandlers {
+	VCM_CBASettings = call compile preprocessFileLineNumbers "Vcom\Functions\VCM_Functions\fn_CBASettings.sqf";
+};
+
+corpseManagerMode = 1; //Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable 
+corpseLimit = 15; //Max number of bodies which can be available at the same time. When exceeded, start deleting immediately. 
+corpseRemovalMinTime = 60; //Minimal time in seconds a body stays in the scene (can't be removed sooner). 
+corpseRemovalMaxTime = 120; //Maximal time in seconds after which a dead body is removed (can't stay longer)
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 300;
+wreckRemovalMaxTime = 900;
+
+class Header
+{
+	gameType = COOP;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+
+
+
+
+
+
+class CfgFunctions
+{
+	#include "CHVD\CfgFunctions.hpp"
+	#include "vcom\cfgFunctions.hpp"
+	#include "KPCF\KPCF_functions.hpp"
+	#include "VVS\Functions.h"
+};
+
+class CfgDebriefing
+{  
+class AdminMod 
+{
+title = "Admin/Cheat Mod Detected ";
+subtitle = "";
+description = "Remove Admin Mods or vehicle spawn mods, Mods that reveal Enemy and Rejoin Ie Crosscom ect. ";
+pictureBackground = "";
+picture = "";
+pictureColor[] = {0.0,0.3,0.6,1};
+};
+	
+	class RestrictedMods
+{
+title = "Out of Date/Error producing Mod Detected ";
+subtitle = "";
+description = "Remove TF47,BloodLust,Bullet Casings mods,NIArms Minigun, Suitcase Nuke and Ravage due to bugs, and Rejoin. ";
+pictureBackground = "";
+picture = "";
+pictureColor[] = {0.0,0.3,0.6,1};
+};
+	
+	class ArsenalMod 
+{
+title = "Arsenal Mod Detected ";
+subtitle = "";
+description = "Remove Arsenal Mods, and Rejoin. ";
+pictureBackground = "";
+picture = "";
+pictureColor[] = {0.0,0.3,0.6,1};
+};
+};

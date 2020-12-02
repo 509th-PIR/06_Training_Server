@@ -1,0 +1,14 @@
+{if ((typeOf _x == "B_CTRG_soldier_M_medic_F") && (!isPlayer _x)) then {deleteVehicle _x}} forEach allUnits;
+deleteVehicle pat1;
+sleep 2;
+_group1=createGroup west;
+'B_CTRG_soldier_M_medic_F' createUnit [getmarkerPos 'PatientSpawn', _group1,'pat1=this; dostop pat1'];
+[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+pat1 setUnconscious false;
+[pat1,selectrandom [0.3],selectrandom ["head","body","hand_l","hand_r","leg_l","leg_r"],selectrandom ["bullet","grenade"]] call ace_medical_fnc_addDamageToUnit;
+[pat1,selectrandom [0.3],selectrandom ["head","body","hand_l","hand_r","leg_l","leg_r"],selectrandom ["bullet","grenade"]] call ace_medical_fnc_addDamageToUnit;
+[pat1,selectrandom [0.2],selectrandom ["head","body","hand_l","hand_r","leg_l","leg_r"],selectrandom ["bullet","grenade"]] call ace_medical_fnc_addDamageToUnit;
+[pat1,selectrandom [0.15],selectrandom ["head","body","hand_l","hand_r","leg_l","leg_r"],selectrandom ["bullet","grenade"]] call ace_medical_fnc_addDamageToUnit;
+_arr= ["OOOWWWWW", "MY LEG!", "Why did you bring me here?", "WHO ARE YOU PEOPLE?!", "Fuck you! -Dohop"];
+_ran= selectRandom _arr;
+hint _ran;
