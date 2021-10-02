@@ -57,7 +57,9 @@ VVS_Air = [// Project hatchet 60's
 			//F/A 18 beta 
 			"JS_JC_FA18E",
 			//USAF
-			"USAF_AC130U"
+			"USAF_AC130U",
+			"USAF_C17",
+			"USAF_C130J_Cargo"
 			];
 
 VVS_Ship = ["SeaFox_EP1","C_Boat_Civil_01_police_F","C_Boat_Civil_01_rescue_F","B_Boat_Armed_01_minigun_F","O_Boat_Armed_01_hmg_F","B_Boat_Transport_01_F","O_Boat_Transport_01_F","B_Lifeboat","O_Lifeboat","C_Rubberboat","I_Boat_Armed_01_minigun_F","I_Boat_Transport_01_F","C_Boat_Civil_01_F","B_G_Boat_Transport_01_F","B_SDV_01_F","O_SDV_01_F","I_SDV_01_F"];
